@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DefaultCustomSearchBar" customModule="GoogleBooks" customModuleProvider="target">
+            <connections>
+                <outlet property="searchBar" destination="1bY-P1-2BY" id="sE2-8Q-Usg"/>
+                <outlet property="segmentedDisposition" destination="v8B-F1-R5h" id="Kiq-ny-KYD"/>
+                <outlet property="segmentedFilter" destination="90a-WV-ytn" id="VNh-xc-uRV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="470" height="110"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DPD-Gv-Hyu">
+                    <rect key="frame" x="15" y="15" width="440" height="75"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yhz-Qp-AtQ">
+                            <rect key="frame" x="0.0" y="0.0" width="440" height="30"/>
+                            <subviews>
+                                <searchBar contentMode="scaleToFill" verticalHuggingPriority="251" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="1bY-P1-2BY">
+                                    <rect key="frame" x="0.0" y="0.0" width="319" height="30"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="v8B-F1-R5h">
+                                    <rect key="frame" x="319" y="0.0" width="121" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="yOd-st-2Mk"/>
+                                    </constraints>
+                                    <segments>
+                                        <segment title="First"/>
+                                        <segment title="Second"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="changeDisposition:" destination="-1" eventType="touchUpInside" id="8Nw-HD-zPr"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                        </stackView>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="90a-WV-ytn">
+                            <rect key="frame" x="0.0" y="45" width="440" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="jar-TT-Mn7"/>
+                            </constraints>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                        </segmentedControl>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DPD-Gv-Hyu" secondAttribute="trailing" constant="15" id="1Og-fO-0bm"/>
+                <constraint firstItem="DPD-Gv-Hyu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="GyC-EG-xut"/>
+                <constraint firstItem="DPD-Gv-Hyu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="MKC-Mh-GNr"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DPD-Gv-Hyu" secondAttribute="bottom" constant="15" id="jx7-Ry-Wuf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-25" y="-353"/>
+        </view>
+    </objects>
+</document>
