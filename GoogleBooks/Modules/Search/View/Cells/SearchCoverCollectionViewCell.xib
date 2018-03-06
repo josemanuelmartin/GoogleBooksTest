@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SearchCoverCollectionViewCell" customModule="GoogleBooks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="152" height="158"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="152" height="158"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b68-kS-EFe">
+                        <rect key="frame" x="0.0" y="0.0" width="152" height="158"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.21367418660000001" green="0.65562921740000002" blue="0.94631662640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="b68-kS-EFe" secondAttribute="bottom" id="e61-QK-lG0"/>
+                <constraint firstItem="b68-kS-EFe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fD2-HU-uvW"/>
+                <constraint firstItem="b68-kS-EFe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fNf-GL-Heq"/>
+                <constraint firstAttribute="trailing" secondItem="b68-kS-EFe" secondAttribute="trailing" id="pzH-2P-z9x"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="152" height="158"/>
+            <connections>
+                <outlet property="cover" destination="b68-kS-EFe" id="7KS-S8-ptV"/>
+            </connections>
+            <point key="canvasLocation" x="100" y="134"/>
+        </collectionViewCell>
+    </objects>
+</document>

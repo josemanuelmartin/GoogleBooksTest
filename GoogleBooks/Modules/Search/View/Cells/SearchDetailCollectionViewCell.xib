@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SearchDetailCollectionViewCell" customModule="GoogleBooks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="479" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="479" height="130"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u5i-48-b5p">
+                        <rect key="frame" x="20" y="15" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="QEd-ix-qBJ"/>
+                            <constraint firstAttribute="width" secondItem="u5i-48-b5p" secondAttribute="height" multiplier="1:1" id="gT5-QA-DzU"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="taB-Qe-c1A">
+                        <rect key="frame" x="140" y="40" width="319" height="51"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8i-47-vPv">
+                                <rect key="frame" x="0.0" y="0.0" width="319" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDd-Qz-MiL">
+                                <rect key="frame" x="0.0" y="30.5" width="319" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.26405267090000001" green="0.99034685860000005" blue="0.16620786039999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="taB-Qe-c1A" firstAttribute="leading" secondItem="u5i-48-b5p" secondAttribute="trailing" constant="20" id="DDr-u3-CPx"/>
+                <constraint firstItem="taB-Qe-c1A" firstAttribute="centerY" secondItem="u5i-48-b5p" secondAttribute="centerY" id="FLv-bV-w37"/>
+                <constraint firstItem="u5i-48-b5p" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="cwV-jJ-lQi"/>
+                <constraint firstItem="u5i-48-b5p" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="jjw-yJ-rYu"/>
+                <constraint firstAttribute="trailing" secondItem="taB-Qe-c1A" secondAttribute="trailing" constant="20" id="yi5-YM-VNz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="479" height="130"/>
+            <connections>
+                <outlet property="author" destination="fDd-Qz-MiL" id="chW-7c-BX5"/>
+                <outlet property="cover" destination="u5i-48-b5p" id="2QE-mf-vJH"/>
+                <outlet property="title" destination="v8i-47-vPv" id="GBl-2w-kSz"/>
+            </connections>
+            <point key="canvasLocation" x="41.5" y="120"/>
+        </collectionViewCell>
+    </objects>
+</document>
