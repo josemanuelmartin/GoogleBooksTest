@@ -13,6 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DefaultSearchViewController" customModule="GoogleBooks" customModuleProvider="target">
             <connections>
                 <outlet property="collectionsBook" destination="FXN-cE-eQS" id="T9y-Bg-b39"/>
+                <outlet property="searchBar" destination="Brc-R1-5oh" id="M0k-Br-wAz"/>
+                <outlet property="segmentedDisposition" destination="Ud8-DU-wp1" id="eNt-2b-HCw"/>
+                <outlet property="segmentedFilter" destination="Y3u-gq-kJs" id="ovE-ei-bAM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,15 +24,42 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMG-ZF-7fW" customClass="DefaultCustomSearchBar" customModule="GoogleBooks" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="20" width="375" height="100"/>
-                    <color key="backgroundColor" red="0.78024488690000005" green="0.78007096050000002" blue="0.80069750549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="100" id="qnY-p4-X3y"/>
-                    </constraints>
-                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="V88-2p-MrZ">
+                    <rect key="frame" x="10" y="30" width="355" height="75"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kM-y7-v7P">
+                            <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+                            <subviews>
+                                <searchBar contentMode="scaleToFill" verticalHuggingPriority="251" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Brc-R1-5oh">
+                                    <rect key="frame" x="0.0" y="0.0" width="319" height="30"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-DU-wp1">
+                                    <rect key="frame" x="319" y="0.0" width="36" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="Pvm-IS-rPt"/>
+                                    </constraints>
+                                    <segments>
+                                        <segment title="" image="icon_list"/>
+                                        <segment title="" image="icon_grid"/>
+                                    </segments>
+                                </segmentedControl>
+                            </subviews>
+                        </stackView>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Y3u-gq-kJs">
+                            <rect key="frame" x="0.0" y="45" width="355" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="UfT-iS-tV1"/>
+                            </constraints>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                        </segmentedControl>
+                    </subviews>
+                </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="FXN-cE-eQS">
-                    <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                    <rect key="frame" x="0.0" y="115" width="375" height="552"/>
                     <color key="backgroundColor" red="0.78024488690000005" green="0.78007096050000002" blue="0.80069750549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i4c-0m-HQm">
                         <size key="itemSize" width="50" height="50"/>
@@ -41,16 +71,20 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="V88-2p-MrZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="8dO-ed-VmS"/>
                 <constraint firstItem="FXN-cE-eQS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QCF-WW-WvK"/>
-                <constraint firstItem="bMG-ZF-7fW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RL2-Cj-Vw3"/>
-                <constraint firstItem="FXN-cE-eQS" firstAttribute="top" secondItem="bMG-ZF-7fW" secondAttribute="bottom" id="VzZ-N4-EFQ"/>
-                <constraint firstItem="bMG-ZF-7fW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WKu-8B-bUZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bMG-ZF-7fW" secondAttribute="trailing" id="jqU-xF-k9L"/>
+                <constraint firstItem="V88-2p-MrZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="ZqC-kq-Ycw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FXN-cE-eQS" secondAttribute="bottom" id="kJq-N7-o08"/>
+                <constraint firstItem="FXN-cE-eQS" firstAttribute="top" secondItem="V88-2p-MrZ" secondAttribute="bottom" constant="10" id="oMS-oR-Ld3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FXN-cE-eQS" secondAttribute="trailing" id="rYh-v2-TFm"/>
+                <constraint firstAttribute="trailing" secondItem="V88-2p-MrZ" secondAttribute="trailing" constant="10" id="yGg-oG-RTg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="48.5" y="145.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_grid" width="24" height="24"/>
+        <image name="icon_list" width="24" height="24"/>
+    </resources>
 </document>
