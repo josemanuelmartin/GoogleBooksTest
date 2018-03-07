@@ -35,9 +35,6 @@
 		0998C19D202D057B002BEFC2 /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998C19C202D057B002BEFC2 /* Wireframe.swift */; };
 		0998C1A5202D12FA002BEFC2 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0998C1A3202D12FA002BEFC2 /* SearchView.xib */; };
 		0998C1A9202D13E4002BEFC2 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0998C1A7202D13E4002BEFC2 /* DetailView.xib */; };
-		0998C1AD202D2147002BEFC2 /* DefaultCustomSearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0998C1AC202D2147002BEFC2 /* DefaultCustomSearchBar.xib */; };
-		0998C1AF202D215B002BEFC2 /* DefaultCustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998C1AE202D215B002BEFC2 /* DefaultCustomSearchBar.swift */; };
-		0998C1B3202D250D002BEFC2 /* CustomSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998C1B2202D250D002BEFC2 /* CustomSearchBarDelegate.swift */; };
 		0998C1B8202E22E0002BEFC2 /* SearchDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998C1B6202E22E0002BEFC2 /* SearchDetailCollectionViewCell.swift */; };
 		0998C1B9202E22E0002BEFC2 /* SearchDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0998C1B7202E22E0002BEFC2 /* SearchDetailCollectionViewCell.xib */; };
 		0998C1BC202E22F1002BEFC2 /* SearchCoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998C1BA202E22F1002BEFC2 /* SearchCoverCollectionViewCell.swift */; };
@@ -112,9 +109,6 @@
 		0998C19C202D057B002BEFC2 /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		0998C1A3202D12FA002BEFC2 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		0998C1A7202D13E4002BEFC2 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
-		0998C1AC202D2147002BEFC2 /* DefaultCustomSearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultCustomSearchBar.xib; sourceTree = "<group>"; };
-		0998C1AE202D215B002BEFC2 /* DefaultCustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCustomSearchBar.swift; sourceTree = "<group>"; };
-		0998C1B2202D250D002BEFC2 /* CustomSearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarDelegate.swift; sourceTree = "<group>"; };
 		0998C1B6202E22E0002BEFC2 /* SearchDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		0998C1B7202E22E0002BEFC2 /* SearchDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		0998C1BA202E22F1002BEFC2 /* SearchCoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoverCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -439,19 +433,8 @@
 		0998C1AA202D1CE3002BEFC2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				0998C1AB202D1CF5002BEFC2 /* Search */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		0998C1AB202D1CF5002BEFC2 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				0998C1AC202D2147002BEFC2 /* DefaultCustomSearchBar.xib */,
-				0998C1B2202D250D002BEFC2 /* CustomSearchBarDelegate.swift */,
-				0998C1AE202D215B002BEFC2 /* DefaultCustomSearchBar.swift */,
-			);
-			path = Search;
 			sourceTree = "<group>";
 		};
 		0998C1B5202E229A002BEFC2 /* Cells */ = {
@@ -594,7 +577,6 @@
 				0998C12D202BBDD3002BEFC2 /* LaunchScreen.storyboard in Resources */,
 				0998C1B9202E22E0002BEFC2 /* SearchDetailCollectionViewCell.xib in Resources */,
 				0998C12A202BBDD3002BEFC2 /* Assets.xcassets in Resources */,
-				0998C1AD202D2147002BEFC2 /* DefaultCustomSearchBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,7 +616,6 @@
 				0998C183202CF6E4002BEFC2 /* DefaultDetailViewController.swift in Sources */,
 				0998C1BC202E22F1002BEFC2 /* SearchCoverCollectionViewCell.swift in Sources */,
 				0998C16D202BC9DF002BEFC2 /* BaseViewController.swift in Sources */,
-				0998C1B3202D250D002BEFC2 /* CustomSearchBarDelegate.swift in Sources */,
 				099C37C52032482500A22D0C /* UICollectionViewExtension.swift in Sources */,
 				0998C17F202CF674002BEFC2 /* DefaultSearchWireframe.swift in Sources */,
 				09B2471B204F5137009B86DA /* UIViewExtension.swift in Sources */,
@@ -644,7 +625,6 @@
 				0998C17A202CF61B002BEFC2 /* SearchInteractor.swift in Sources */,
 				0998C187202CF794002BEFC2 /* DetailPresenter.swift in Sources */,
 				0998C181202CF6D6002BEFC2 /* DetailView.swift in Sources */,
-				0998C1AF202D215B002BEFC2 /* DefaultCustomSearchBar.swift in Sources */,
 				0998C1BF202E236B002BEFC2 /* SearchBookModel.swift in Sources */,
 				0998C170202BCADC002BEFC2 /* View.swift in Sources */,
 				0998C174202BD8A5002BEFC2 /* DefaultSearchPresenter.swift in Sources */,
