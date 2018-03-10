@@ -10,8 +10,8 @@ import Foundation
 
 struct ImageLink: Decodable {
     
-    var smallThumbnail: String?
-    var thumbnail: String?
+    let smallThumbnail: String?
+    let thumbnail: String?
     
     init(smallThumbnail: String? = nil,
          thumbnail: String? = nil) {

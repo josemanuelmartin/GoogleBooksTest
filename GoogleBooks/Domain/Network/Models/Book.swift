@@ -10,11 +10,11 @@ import Foundation
 
 struct Book: Decodable {
    
-    var kind: String?
-    var id: String
-    var etag: String?
-    var selfLink: String?
-    var volumeInfo: VolumeInfo?
+    let kind: String?
+    let id: String
+    let etag: String?
+    let selfLink: String?
+    let volumeInfo: VolumeInfo?
 
     init(id: String,
          kind: String? = nil,

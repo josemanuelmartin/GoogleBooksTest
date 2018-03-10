@@ -10,16 +10,16 @@ import Foundation
 
 struct VolumeInfo: Decodable {
     
-    var title: String?
-    var authors: [String]?
-    var publisher: String?
-    var publishedDate: String?
-    var description: String?
-    var pageCount: Int?
-    var categories: [String]?
-    var imageLink: ImageLink?
-    var language: String?
-    var previewLink: String?
+    let title: String?
+    let authors: [String]?
+    let publisher: String?
+    let publishedDate: String?
+    let description: String?
+    let pageCount: Int?
+    let categories: [String]?
+    let imageLink: ImageLink?
+    let language: String?
+    let previewLink: String?
     
     init(title: String? = nil,
          authors: [String]? = nil,
