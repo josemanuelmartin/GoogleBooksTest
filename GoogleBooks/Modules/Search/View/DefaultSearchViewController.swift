@@ -31,7 +31,7 @@ enum typeCell {
     }
 }
 
-class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, SearchView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, SearchView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     @IBOutlet weak var collectionsBook: UICollectionView!
     
@@ -45,6 +45,7 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.delegate = self
         configCollection()
         configSegmentedFilters()
     }
@@ -103,9 +104,15 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
         return cell
     }
     
-    // MARK: - CollectionView methods
+    // MARK: - SearchView protocol
+    func refreshTable() {
+        collectionsBook.reloadData()
+    }
+    
+    
+    // MARK: - CollectionView delegate methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return presenter.books.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -120,4 +127,12 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
         presenter.loadDetail(bookIndex: indexPath.row)
     }
     
+    // MARK: - SearchBar delegate methods
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        if let term = searchBar.text {
+            presenter.search(name: term)
+        }
+    }
+
 }

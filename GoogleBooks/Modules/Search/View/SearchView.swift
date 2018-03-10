@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SearchView {
-    
+protocol SearchView: class {
+    func refreshTable()
 }

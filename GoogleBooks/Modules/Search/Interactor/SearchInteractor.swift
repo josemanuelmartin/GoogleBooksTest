@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SearchInteractor {
-    func getBooks(name: String)
+    func getBooks(name: String, completion: @escaping(ResultCallback<[Book]>))
 }

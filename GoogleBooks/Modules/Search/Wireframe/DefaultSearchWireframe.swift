@@ -14,13 +14,11 @@ class DefaultSearchWireframe: SearchWireframe {
     
     static func createModule() -> DefaultSearchViewController {
         let view = DefaultSearchViewController(nibName: "SearchView", bundle: nil)
-        let presenter = DefaultSearchPresenter()
         let wireframe = DefaultSearchWireframe()
         let interactor = DefaultSearchInteractor()
+        let presenter = DefaultSearchPresenter(view: view, wireframe: wireframe, interactor: interactor)
         
         view.presenter = presenter
-        presenter.wireframe = wireframe
-        presenter.interactor = interactor
         
         wireframe.viewController = view
         
