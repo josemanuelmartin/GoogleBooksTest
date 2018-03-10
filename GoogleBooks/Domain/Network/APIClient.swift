@@ -7,48 +7,31 @@
 //
 
 import Foundation
+import UIKit
 
-class APIClient {
+public class APIClient {
     
-    let baseURL = "https://www.googleapis.com/books/v1/volumes?q="
-    
+    let baseEndpoint = "https://www.googleapis.com/books/v1/"
     let session = URLSession(configuration: .default)
-    var task: URLSessionDataTask?
     
-    func searchBook(book: String) {
-        task?.cancel()
-        let url = URLRequest(url: URL(string: "\(baseURL)\(book)")!)
+    func send<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<BookResponse<T.Response>>) {
         
-        task = session.dataTask(with: url, completionHandler: { (data, response, error) in
-            guard error == nil else {
-                print(error ??? "Unidentified error")
-                return
-            }
-            
-            guard let responseData = data else {
-                print("Error: did not receive data")
-                return
-            }
-            
-            guard let json = try? JSONSerialization.jsonObject(with: responseData) as? [String: Any] else {
-                print("JSONSerialization error!")
-                return
-            }
-            
-            guard let items = json!["items"] as? [[String: Any]] else {
-                return
-            }
-            
-            do {
-                let books = try items.map{ try BookModel(json: $0) }
-                print("BOOKS: \(books)")
-            } catch let error {
-                print(error)
-            }
-            
-        })
+        let endpoint = URL(string: "\(baseEndpoint)\(request.resourceName)")!
         
-        task?.resume()
+        let task = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
+            
+            if let data = data {
+                do {
+                    let bookResponse = try JSONDecoder().decode(BookResponse<T.Response>.self, from: data)
+                    completion(.success(bookResponse))
+                } catch {
+                    completion(.failure(BookError.decoding))
+                }
+            }
+        }
+        
+        task.resume()
     }
     
 }
+
