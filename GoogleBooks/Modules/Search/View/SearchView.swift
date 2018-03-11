@@ -10,4 +10,5 @@ import Foundation
 
 protocol SearchView: class {
     func refreshTable()
+    func backgroundEmpty(_ state: Bool)
 }

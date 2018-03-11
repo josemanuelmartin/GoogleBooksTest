@@ -31,17 +31,19 @@ class DefaultSearchPresenter: SearchPresenter {
             
             switch result {
             case .success(let books):
+                self.books.removeAll()
                 self.buildBooks(books: books)
-                self.refreshTable()
+                self.refreshTable(isEmpty: false)
             case .failure:
                 self.books.removeAll()
-                self.refreshTable()
+                self.refreshTable(isEmpty: true)
             }
         }
     }
     
-    private func refreshTable() {
+    private func refreshTable(isEmpty: Bool) {
         DispatchQueue.main.async {
+            self.view?.backgroundEmpty(isEmpty)
             self.view?.refreshTable()
         }
     }
@@ -49,7 +51,6 @@ class DefaultSearchPresenter: SearchPresenter {
     private func buildBooks(books: [Book]) {
         
         for book in books {
-            
             if let volume = book.volumeInfo, let author = volume.authors, let title = volume.title {
                 let model = SearchBookModel()
                 model.author = author[0]

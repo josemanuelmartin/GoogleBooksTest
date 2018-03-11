@@ -17,7 +17,7 @@ enum typeCell {
         case .list:
             return 100.0
         case .grid:
-            return 100.0
+            return 200.0
         }
     }
     
@@ -55,9 +55,7 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     }
     
     // MARK: - DefaultCustomSearchBar methods
-    
     private func configSegmentedFilters() {
-        
         segmentedDisposition.addTarget(self,
                                        action: #selector(changeDisposition),
                                        for: .valueChanged)
@@ -68,35 +66,25 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     }
     
     @objc func changeDisposition() {
-        
-        switch currentCellType! {
-        case .list:
-            currentCellType = .grid
-        
-        case .grid:
-            currentCellType = .list
-        }
-        
+        currentCellType = currentCellType == .grid ? .list : .grid
         collectionsBook.reloadData()
     }
     
     @objc func applyFilter() {
-//        currentCellType = .grid
-//        collectionsBook.reloadData()
+        
     }
     
     // MARK: - Private methods
-    
     private func configCollection() {
         collectionsBook.delegate = self
         collectionsBook.dataSource = self
         
+        backgroundEmpty(true)
         currentCellType = .list
         collectionsBook.register(SearchDetailCollectionViewCell.self)
     }
     
     private func setupCell(indexPath: IndexPath) -> UICollectionViewCell {
-        
         let book = presenter.books[indexPath.row]
         factory = CollectionCellFactory(collectionView: collectionsBook)
         
@@ -109,6 +97,13 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
         collectionsBook.reloadData()
     }
     
+    func backgroundEmpty(_ state: Bool) {
+        if state  {
+            collectionsBook.backgroundView = EmptyTableViewBackground()
+        } else {
+            collectionsBook.backgroundView = nil
+        }
+    }
     
     // MARK: - CollectionView delegate methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
