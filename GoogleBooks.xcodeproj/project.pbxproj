@@ -17,6 +17,9 @@
 		097C597B20540B3C00EE7491 /* ImageLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C597A20540B3C00EE7491 /* ImageLink.swift */; };
 		097C59822054AF3700EE7491 /* EmptyTableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C59812054AF3700EE7491 /* EmptyTableViewBackground.swift */; };
 		097C59842054AF4600EE7491 /* EmptyTableViewBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = 097C59832054AF4600EE7491 /* EmptyTableViewBackground.xib */; };
+		097C598C2055738F00EE7491 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097C59882055726C00EE7491 /* Lato-Regular.ttf */; };
+		097C598D2055738F00EE7491 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097C59872055726800EE7491 /* Lato-Light.ttf */; };
+		097C598E2055738F00EE7491 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097C59862055726100EE7491 /* Lato-Black.ttf */; };
 		0998C123202BBDD3002BEFC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998C122202BBDD3002BEFC2 /* AppDelegate.swift */; };
 		0998C12A202BBDD3002BEFC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0998C129202BBDD3002BEFC2 /* Assets.xcassets */; };
 		0998C12D202BBDD3002BEFC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0998C12B202BBDD3002BEFC2 /* LaunchScreen.storyboard */; };
@@ -95,6 +98,9 @@
 		097C597A20540B3C00EE7491 /* ImageLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLink.swift; sourceTree = "<group>"; };
 		097C59812054AF3700EE7491 /* EmptyTableViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableViewBackground.swift; sourceTree = "<group>"; };
 		097C59832054AF4600EE7491 /* EmptyTableViewBackground.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableViewBackground.xib; sourceTree = "<group>"; };
+		097C59862055726100EE7491 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		097C59872055726800EE7491 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		097C59882055726C00EE7491 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		0998C11F202BBDD3002BEFC2 /* GoogleBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0998C122202BBDD3002BEFC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0998C129202BBDD3002BEFC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,6 +220,16 @@
 			path = EmptyTableView;
 			sourceTree = "<group>";
 		};
+		097C59852055724D00EE7491 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				097C59882055726C00EE7491 /* Lato-Regular.ttf */,
+				097C59872055726800EE7491 /* Lato-Light.ttf */,
+				097C59862055726100EE7491 /* Lato-Black.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0998C116202BBDD3002BEFC2 = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +303,7 @@
 		0998C152202BBFD7002BEFC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				097C59852055724D00EE7491 /* Fonts */,
 				0998C129202BBDD3002BEFC2 /* Assets.xcassets */,
 				0998C12B202BBDD3002BEFC2 /* LaunchScreen.storyboard */,
 			);
@@ -625,6 +642,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				097C598C2055738F00EE7491 /* Lato-Regular.ttf in Resources */,
+				097C598D2055738F00EE7491 /* Lato-Light.ttf in Resources */,
+				097C598E2055738F00EE7491 /* Lato-Black.ttf in Resources */,
 				0998C1A5202D12FA002BEFC2 /* SearchView.xib in Resources */,
 				0998C1A9202D13E4002BEFC2 /* DetailView.xib in Resources */,
 				097C59842054AF4600EE7491 /* EmptyTableViewBackground.xib in Resources */,
