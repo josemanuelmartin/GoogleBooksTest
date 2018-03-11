@@ -40,7 +40,6 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="PdU-CF-3O0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8b5-YI-9LI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PdU-CF-3O0" secondAttribute="trailing" constant="30" id="BoC-Yf-KaE"/>

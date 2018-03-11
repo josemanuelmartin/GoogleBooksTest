@@ -18,6 +18,7 @@ class EmptyTableViewBackground: BaseView {
         emptyTitle.text = "Empty table"
         emptySubtitle.text = "Perform a search to see results."
         
+        backgroundColor = .tableBackgroundoColor
         emptyTitle.font = .latoRegular(size: 25)
         emptySubtitle.font = .latoLight(size: 15)
         
