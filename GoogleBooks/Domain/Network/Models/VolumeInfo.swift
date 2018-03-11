@@ -17,7 +17,7 @@ struct VolumeInfo: Decodable {
     let description: String?
     let pageCount: Int?
     let categories: [String]?
-    let imageLink: ImageLink?
+    let imageLinks: ImageLink?
     let language: String?
     let previewLink: String?
     
@@ -28,7 +28,7 @@ struct VolumeInfo: Decodable {
          description: String? = nil,
          pageCount: Int? = nil,
          categories: [String]? = nil,
-         imageLink: ImageLink? = nil,
+         imageLinks: ImageLink? = nil,
          language: String? = nil,
          previewLink: String? = nil) {
         
@@ -39,7 +39,7 @@ struct VolumeInfo: Decodable {
         self.description = description
         self.pageCount = pageCount
         self.categories = categories
-        self.imageLink = imageLink
+        self.imageLinks = imageLinks
         self.language = language
         self.previewLink = previewLink
     }

@@ -51,10 +51,15 @@ class DefaultSearchPresenter: SearchPresenter {
     private func buildBooks(books: [Book]) {
         
         for book in books {
-            if let volume = book.volumeInfo, let author = volume.authors, let title = volume.title {
+            if let volume = book.volumeInfo,
+                let author = volume.authors,
+                let title = volume.title,
+                let thumbnail = volume.imageLinks?.thumbnail {
+                
                 let model = SearchBookModel()
                 model.author = author[0]
                 model.title = title
+                model.thumbnail = thumbnail
                 
                 self.books.append(model)
             }

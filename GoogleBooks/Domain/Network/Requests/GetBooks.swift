@@ -13,7 +13,7 @@ struct GetBooks: APIRequest {
     typealias Response = [Book]
     
     var resourceName: String {
-        return "volumes?q=\(term)"
+        return "\(Constants.url.volumes)\(term)"
     }
     
     private let term: String
