@@ -24,7 +24,7 @@ enum typeCell {
     var width: CGFloat {
         switch self {
         case .list:
-            return UIScreen.main.bounds.width
+            return UIScreen.main.bounds.width - 20
         case .grid:
             return height / 2
         }
@@ -44,7 +44,7 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .tableBackgroundoColor
         searchBar.delegate = self
         configCollection()
         configSegmentedFilters()
@@ -78,6 +78,8 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     private func configCollection() {
         collectionsBook.delegate = self
         collectionsBook.dataSource = self
+        
+        collectionsBook.backgroundColor = .tableBackgroundoColor
         
         backgroundEmpty(true)
         currentCellType = .list
@@ -125,6 +127,9 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     // MARK: - SearchBar delegate methods
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let term = searchBar.text {
             presenter.search(name: term)
         }

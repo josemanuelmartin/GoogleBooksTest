@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="152" height="158"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b68-kS-EFe">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="books" translatesAutoresizingMaskIntoConstraints="NO" id="b68-kS-EFe">
                         <rect key="frame" x="0.0" y="0.0" width="152" height="158"/>
                     </imageView>
                 </subviews>
@@ -39,4 +39,7 @@
             <point key="canvasLocation" x="100" y="134"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="books" width="256" height="197"/>
+    </resources>
 </document>
