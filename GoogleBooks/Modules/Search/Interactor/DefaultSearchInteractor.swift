@@ -10,11 +10,13 @@ import Foundation
 
 class DefaultSearchInteractor: SearchInteractor {
     
+    let apiClient = APIClient()
+    
     func getBooks(name: String, completion: @escaping(ResultCallback<[Book]>)) {
         
         let request = GetBooks(term: name)
         
-        APIClient().send(request) { response in
+        apiClient.send(request) { response in
             
             switch response {
             case .success(let search):
