@@ -11,14 +11,18 @@ import UIKit
 
 public class APIClient {
     
-    let baseEndpoint = "https://www.googleapis.com/books/v1/"
+    let baseEndpoint = Constants.url.baseEndpoint
     let session = URLSession(configuration: .default)
+    var dataTask: URLSessionDataTask?
     
     func send<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<BookResponse<T.Response>>) {
         
-        let endpoint = URL(string: "\(baseEndpoint)\(request.resourceName)")!
+        let urlString = "\(baseEndpoint)\(request.resourceName)"
+        let endpoint = URL(string: urlString)!
         
-        let task = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
+        dataTask?.cancel()
+        
+        dataTask = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
             
             if let data = data {
                 do {
@@ -30,8 +34,24 @@ public class APIClient {
             }
         }
         
-        task.resume()
+        dataTask?.resume()
     }
     
-}
+    func getThumbnail<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<Data>) {
+        
+        let endpoint = URL(string: request.resourceName)!
+        
+        dataTask?.cancel()
+        
+        dataTask = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(BookError.decoding))
+                return
+            }
+            completion(.success(data))
+        }
+        
+        dataTask?.resume()
+    }
 
+}
