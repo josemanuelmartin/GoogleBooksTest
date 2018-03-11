@@ -15,6 +15,8 @@
 		097C597320520C8A00EE7491 /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C597220520C8A00EE7491 /* BookResponse.swift */; };
 		097C597920540B2E00EE7491 /* VolumeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C597820540B2E00EE7491 /* VolumeInfo.swift */; };
 		097C597B20540B3C00EE7491 /* ImageLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C597A20540B3C00EE7491 /* ImageLink.swift */; };
+		097C59822054AF3700EE7491 /* EmptyTableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C59812054AF3700EE7491 /* EmptyTableViewBackground.swift */; };
+		097C59842054AF4600EE7491 /* EmptyTableViewBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = 097C59832054AF4600EE7491 /* EmptyTableViewBackground.xib */; };
 		0998C123202BBDD3002BEFC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998C122202BBDD3002BEFC2 /* AppDelegate.swift */; };
 		0998C12A202BBDD3002BEFC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0998C129202BBDD3002BEFC2 /* Assets.xcassets */; };
 		0998C12D202BBDD3002BEFC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0998C12B202BBDD3002BEFC2 /* LaunchScreen.storyboard */; };
@@ -91,6 +93,8 @@
 		097C597220520C8A00EE7491 /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookResponse.swift; sourceTree = "<group>"; };
 		097C597820540B2E00EE7491 /* VolumeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInfo.swift; sourceTree = "<group>"; };
 		097C597A20540B3C00EE7491 /* ImageLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLink.swift; sourceTree = "<group>"; };
+		097C59812054AF3700EE7491 /* EmptyTableViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableViewBackground.swift; sourceTree = "<group>"; };
+		097C59832054AF4600EE7491 /* EmptyTableViewBackground.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableViewBackground.xib; sourceTree = "<group>"; };
 		0998C11F202BBDD3002BEFC2 /* GoogleBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0998C122202BBDD3002BEFC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0998C129202BBDD3002BEFC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -199,6 +203,15 @@
 				097C597820540B2E00EE7491 /* VolumeInfo.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		097C597E2054A95800EE7491 /* EmptyTableView */ = {
+			isa = PBXGroup;
+			children = (
+				097C59812054AF3700EE7491 /* EmptyTableViewBackground.swift */,
+				097C59832054AF4600EE7491 /* EmptyTableViewBackground.xib */,
+			);
+			path = EmptyTableView;
 			sourceTree = "<group>";
 		};
 		0998C116202BBDD3002BEFC2 = {
@@ -360,6 +373,7 @@
 		0998C15B202BC51C002BEFC2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				097C597E2054A95800EE7491 /* EmptyTableView */,
 				0998C1B5202E229A002BEFC2 /* Cells */,
 				0998C1A3202D12FA002BEFC2 /* SearchView.xib */,
 				0998C167202BC80A002BEFC2 /* SearchView.swift */,
@@ -613,6 +627,7 @@
 			files = (
 				0998C1A5202D12FA002BEFC2 /* SearchView.xib in Resources */,
 				0998C1A9202D13E4002BEFC2 /* DetailView.xib in Resources */,
+				097C59842054AF4600EE7491 /* EmptyTableViewBackground.xib in Resources */,
 				0998C1BD202E22F1002BEFC2 /* SearchCoverCollectionViewCell.xib in Resources */,
 				0998C12D202BBDD3002BEFC2 /* LaunchScreen.storyboard in Resources */,
 				0998C1B9202E22E0002BEFC2 /* SearchDetailCollectionViewCell.xib in Resources */,
@@ -661,6 +676,7 @@
 				0998C17F202CF674002BEFC2 /* DefaultSearchWireframe.swift in Sources */,
 				097C59602050A37A00EE7491 /* APIRequest.swift in Sources */,
 				09B2471B204F5137009B86DA /* UIViewExtension.swift in Sources */,
+				097C59822054AF3700EE7491 /* EmptyTableViewBackground.swift in Sources */,
 				0998C17D202CF665002BEFC2 /* SearchWireframe.swift in Sources */,
 				09B24718204F4D11009B86DA /* BaseView.swift in Sources */,
 				0998C189202CF7A6002BEFC2 /* DefaultDetailPresenter.swift in Sources */,
