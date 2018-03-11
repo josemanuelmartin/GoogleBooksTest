@@ -15,13 +15,19 @@ class BaseView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
+        setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup()
+        setupUI()
+    }
+    func setupUI() {
+        //Overwrite since BaseView implementation
     }
 }
+
 private extension BaseView {
     
     func xibSetup() {
@@ -45,4 +51,3 @@ private extension BaseView {
                                                       views: ["childView": view]))
     }
 }
-
