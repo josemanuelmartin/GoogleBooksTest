@@ -27,7 +27,10 @@ public class APIClient {
             if let data = data {
                 do {
                     let bookResponse = try JSONDecoder().decode(BookResponse<T.Response>.self, from: data)
-                    completion(.success(bookResponse))
+                    
+                    DispatchQueue.main.async {
+                        completion(.success(bookResponse))
+                    }
                 } catch {
                     completion(.failure(BookError.decoding))
                 }
@@ -48,7 +51,9 @@ public class APIClient {
                 completion(.failure(BookError.decoding))
                 return
             }
-            completion(.success(data))
+            DispatchQueue.main.async {
+                completion(.success(data))
+            }
         }
         
         dataTask?.resume()

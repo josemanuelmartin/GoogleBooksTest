@@ -36,14 +36,10 @@ class SearchDetailCollectionViewCell: BaseCollectionViewCell<SearchBookModel> {
             
             switch response {
             case .success(let data):
-                DispatchQueue.main.async {
-                    self.updateCell(data)
-                }
+                self.updateCell(data)
                 return
             case .failure:
-                DispatchQueue.main.async {
-                    self.updateCell()
-                }
+                self.updateCell()
                 return
             }
         }
