@@ -15,7 +15,7 @@ public class APIClient {
     let session = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     
-    func send<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<BookResponse<T.Response>>) {
+    func send<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<T.Response>) {
         
         let urlString = "\(baseEndpoint)\(request.resourceName)"
         let endpoint = URL(string: urlString)!
@@ -24,9 +24,11 @@ public class APIClient {
         
         dataTask = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
             
+            //TODO: Check for error!!
+            
             if let data = data {
                 do {
-                    let bookResponse = try JSONDecoder().decode(BookResponse<T.Response>.self, from: data)
+                    let bookResponse = try JSONDecoder().decode(T.Response.self, from: data)
                     
                     DispatchQueue.main.async {
                         completion(.success(bookResponse))
@@ -47,6 +49,9 @@ public class APIClient {
         dataTask?.cancel()
         
         dataTask = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
+            
+            //TODO: Check for error!!
+            
             guard let data = data, error == nil else {
                 completion(.failure(BookError.decoding))
                 return
@@ -58,5 +63,4 @@ public class APIClient {
         
         dataTask?.resume()
     }
-
 }
