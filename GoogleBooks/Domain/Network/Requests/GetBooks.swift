@@ -10,7 +10,7 @@ import Foundation
 
 struct GetBooks: APIRequest {
     
-    typealias Response = [Book]
+    typealias Response = BookResponse<[Book]>
     
     var resourceName: String {
         return "\(Constants.url.volumes)\(term)"

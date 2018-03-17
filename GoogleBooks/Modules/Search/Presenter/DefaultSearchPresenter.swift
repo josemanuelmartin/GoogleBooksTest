@@ -10,9 +10,9 @@ import Foundation
 
 class DefaultSearchPresenter: SearchPresenter {
     
-    weak var view: SearchView?
-    let wireframe: SearchWireframe
-    let interactor: SearchInteractor
+    private weak var view: SearchView?
+    private let wireframe: SearchWireframe
+    private let interactor: SearchInteractor
     
     var books = [SearchBookModel]()
     
@@ -20,9 +20,6 @@ class DefaultSearchPresenter: SearchPresenter {
         self.view = view
         self.wireframe = wireframe
         self.interactor = interactor
-    }
-    
-    func viewDidLoad() {
     }
     
     func search(name: String) {
@@ -60,6 +57,7 @@ class DefaultSearchPresenter: SearchPresenter {
                 model.author = author[0]
                 model.title = title
                 model.thumbnail = thumbnail
+                model.identifier = book.id
                 
                 self.books.append(model)
             }

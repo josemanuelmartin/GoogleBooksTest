@@ -30,7 +30,7 @@ enum typeCell {
         }
     }
 }
-
+    
 class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, SearchView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     @IBOutlet weak var collectionsBook: UICollectionView!
@@ -83,15 +83,28 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
         
         backgroundEmpty(true)
         currentCellType = .list
+        
         collectionsBook.register(SearchDetailCollectionViewCell.self)
+        collectionsBook.register(SearchCoverCollectionViewCell.self)
     }
     
     private func setupCell(indexPath: IndexPath) -> UICollectionViewCell {
         let book = presenter.books[indexPath.row]
+        
         factory = CollectionCellFactory(collectionView: collectionsBook)
         
-        let cell: SearchDetailCollectionViewCell = factory.createCell(viewModel: book, indexPath: indexPath)
-        return cell
+        if currentCellType == .list {
+            let cell: SearchDetailCollectionViewCell = factory.createCell(viewModel: book, indexPath: indexPath)
+            
+            return cell
+            
+        } else {
+            let cell: SearchCoverCollectionViewCell = factory.createCell(viewModel: book, indexPath: indexPath)
+            
+            return cell
+            
+        }
+        
     }
     
     // MARK: - SearchView protocol

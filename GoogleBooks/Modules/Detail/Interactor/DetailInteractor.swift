@@ -9,5 +9,6 @@
 import Foundation
 
 protocol DetailInteractor {
-    
+    func getBookDetail(id: String, completion: @escaping(ResultCallback<Book>))
+    func getCover(url: String, completion: @escaping(ResultCallback<Data>))
 }

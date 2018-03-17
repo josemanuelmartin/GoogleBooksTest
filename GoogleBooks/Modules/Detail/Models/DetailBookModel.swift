@@ -1,5 +1,5 @@
 //
-//  SearchBookModel.swift
+//  DetailBookModel.swift
 //  GoogleBooks
 //
 //  Created by Jose Manuel Martín González.
@@ -9,9 +9,10 @@
 import Foundation
 
 
-class SearchBookModel: ViewModel {
+class DetailBookModel: ViewModel {
+    var thumbnail: String?
     var title: String?
     var author: String?
-    var thumbnail: String?
-    var identifier: String?
+    var description: String?
+    var publicationDate: String?
 }

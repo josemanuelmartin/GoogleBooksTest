@@ -9,9 +9,9 @@
 import Foundation
 
 struct Constants {
-    
     struct url {
         static let baseEndpoint = "https://www.googleapis.com/books/v1/"
         static let volumes = "volumes?q="
+        static let volumeDetail = "volumes/"
     }
 }

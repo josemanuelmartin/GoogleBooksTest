@@ -12,16 +12,14 @@ class DefaultDetailWireframe: DetailWireframe {
     
     weak var viewController: UIViewController?
     
-    static func createModule() -> DefaultDetailViewController {
+    static func createModule(identifier: String) -> DefaultDetailViewController {
+        
         let view = DefaultDetailViewController(nibName: "DetailView", bundle: nil)
-        let presenter = DefaultDetailPresenter()
         let wireframe = DefaultDetailWireframe()
         let interactor = DefaultDetailInteractor()
+        let presenter = DefaultDetailPresenter(view: view, wireframe: wireframe, interactor: interactor, bookIdentifier: identifier)
         
         view.presenter = presenter
-        presenter.wireframe = wireframe
-        presenter.interactor = interactor
-        
         wireframe.viewController = view
         
         return view

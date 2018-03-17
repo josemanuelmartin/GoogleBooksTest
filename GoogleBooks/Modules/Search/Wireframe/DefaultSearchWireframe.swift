@@ -28,7 +28,7 @@ class DefaultSearchWireframe: SearchWireframe {
     
     func loadDetail(book: SearchBookModel) {
     
-        let vc = DefaultDetailWireframe.createModule()
+        let vc = DefaultDetailWireframe.createModule(identifier: book.identifier!)
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

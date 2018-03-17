@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol DetailView {
-    
+protocol DetailView: class {
+    func updateBookDetail(model: DetailBookModel)
+    func updateCover(_ imageData: Data)
 }
