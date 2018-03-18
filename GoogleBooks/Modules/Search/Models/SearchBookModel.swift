@@ -14,4 +14,5 @@ class SearchBookModel: ViewModel {
     var author: String?
     var thumbnail: String?
     var identifier: String?
+    var date: String?
 }

@@ -56,6 +56,15 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     
     // MARK: - DefaultCustomSearchBar methods
     private func configSegmentedFilters() {
+        
+        segmentedFilter.removeAllSegments()
+        
+        for (index, segment) in presenter.getFilters().enumerated() {
+            segmentedFilter.insertSegment(withTitle: segment.filterName, at: index, animated: true)
+        }
+        
+        segmentedFilter.selectedSegmentIndex = 0
+        
         segmentedDisposition.addTarget(self,
                                        action: #selector(changeDisposition),
                                        for: .valueChanged)
@@ -71,7 +80,8 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     }
     
     @objc func applyFilter() {
-        
+        refreshTable()
+        //presenter.filterBooks(position: segmentedFilter.selectedSegmentIndex)
     }
     
     // MARK: - Private methods
@@ -89,7 +99,7 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     }
     
     private func setupCell(indexPath: IndexPath) -> UICollectionViewCell {
-        let book = presenter.books[indexPath.row]
+        let book =  presenter.getBooks(position: segmentedFilter.selectedSegmentIndex)[indexPath.row]
         
         factory = CollectionCellFactory(collectionView: collectionsBook)
         
@@ -122,7 +132,8 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     
     // MARK: - CollectionView delegate methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.books.count
+        return presenter.getBooks(position: segmentedFilter.selectedSegmentIndex).count
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

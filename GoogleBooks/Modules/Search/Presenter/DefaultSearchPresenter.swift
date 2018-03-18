@@ -8,13 +8,32 @@
 
 import Foundation
 
+public enum BookFilterType {
+    case initial, title, author, published
+    
+    var filterName: String {
+        switch self {
+        case .initial:
+            return "Default"
+        case .title:
+            return "Title"
+        case .author:
+            return "Author"
+        case .published:
+            return "Date"
+        }
+    }
+}
+
 class DefaultSearchPresenter: SearchPresenter {
     
     private weak var view: SearchView?
     private let wireframe: SearchWireframe
     private let interactor: SearchInteractor
     
-    var books = [SearchBookModel]()
+    private var books = [SearchBookModel]()
+    lazy var filters: [BookFilterType] = [.initial, .title, .author, .published]
+    
     
     init(view: SearchView, wireframe: SearchWireframe, interactor: SearchInteractor ) {
         self.view = view
@@ -38,6 +57,10 @@ class DefaultSearchPresenter: SearchPresenter {
         }
     }
     
+    func loadDetail(bookIndex: Int) {
+        wireframe.loadDetail(book: books[bookIndex])
+    }
+    
     private func refreshTable(isEmpty: Bool) {
         DispatchQueue.main.async {
             self.view?.backgroundEmpty(isEmpty)
@@ -51,12 +74,14 @@ class DefaultSearchPresenter: SearchPresenter {
             if let volume = book.volumeInfo,
                 let author = volume.authors,
                 let title = volume.title,
-                let thumbnail = volume.imageLinks?.thumbnail {
+                let thumbnail = volume.imageLinks?.thumbnail,
+                let date = volume.publishedDate {
                 
                 let model = SearchBookModel()
-                model.author = author[0]
+                model.author = author.first
                 model.title = title
                 model.thumbnail = thumbnail
+                model.date = date
                 model.identifier = book.id
                 
                 self.books.append(model)
@@ -64,8 +89,23 @@ class DefaultSearchPresenter: SearchPresenter {
         }
     }
     
-    func loadDetail(bookIndex: Int) {
-        wireframe.loadDetail(book: books[bookIndex])
+    func getBooks(position: Int) -> [SearchBookModel] {
+        
+        let filterType = filters[position]
+        
+        switch filterType {
+        case .initial:
+            return books
+        case .title:
+            return books.sorted(by: { $0.title! < $1.title! })
+        case .author:
+            return books.sorted(by: { $0.author! < $1.author! })
+        case .published:
+            return books.sorted(by: { $0.date! < $1.date! })
+        }
     }
-   
+
+    func getFilters() -> [BookFilterType] {
+        return filters
+    }
 }

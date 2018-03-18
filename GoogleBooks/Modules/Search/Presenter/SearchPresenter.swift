@@ -11,4 +11,6 @@ import Foundation
 protocol SearchPresenter: Presenter {
     func search(name: String)
     func loadDetail(bookIndex: Int)
+    func getFilters() -> [BookFilterType]
+    func getBooks(position: Int) -> [SearchBookModel]
 }
