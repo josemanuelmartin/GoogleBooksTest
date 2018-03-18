@@ -17,29 +17,42 @@ public class APIClient {
     
     func send<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<T.Response>) {
         
+        
+        
         let urlString = "\(baseEndpoint)\(request.resourceName)"
-        let endpoint = URL(string: urlString)!
         
-        dataTask?.cancel()
+        if let encoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+            let endpoint = URL(string: encoded) {
         
-        dataTask = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
+            dataTask?.cancel()
             
-            //TODO: Check for error!!
-            
-            if let data = data {
-                do {
-                    let bookResponse = try JSONDecoder().decode(T.Response.self, from: data)
-                    
-                    DispatchQueue.main.async {
-                        completion(.success(bookResponse))
+            dataTask = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
+                
+                //TODO: Check for error!!
+                
+                if let data = data {
+                    do {
+                        let bookResponse = try JSONDecoder().decode(T.Response.self, from: data)
+                        
+                        DispatchQueue.main.async {
+                            completion(.success(bookResponse))
+                        }
+                    } catch {
+                        completion(.failure(BookError.decoding))
                     }
-                } catch {
-                    completion(.failure(BookError.decoding))
                 }
             }
+            
+            dataTask?.resume()
+        
+        } else {
+            //TODO: Send custom error
+            completion(.failure(BookError.decoding))
         }
         
-        dataTask?.resume()
+        
+        
+        
     }
     
     func getThumbnail<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<Data>) {
