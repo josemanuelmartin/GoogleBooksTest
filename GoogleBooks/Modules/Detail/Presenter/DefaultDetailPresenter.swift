@@ -32,8 +32,11 @@ class DefaultDetailPresenter: DetailPresenter {
         interactor.getBookDetail(id: bookIdentifier) { result in
             
             switch result {
-            case .success(let book):
-                self.view?.updateBookDetail(model: self.buildBook(book: book)!)
+            case .success(let result):
+                guard let book = self.buildBook(book: result)  else { return }
+                
+                self.view?.updateBookDetail(model: book)
+                
             case .failure:
                 //TODO: Show error
                 return
@@ -43,21 +46,18 @@ class DefaultDetailPresenter: DetailPresenter {
     
     private func buildBook(book: Book) -> DetailBookModel? {
         
-        if let volume = book.volumeInfo,
-            let author = volume.authors,
-            let date = volume.publishedDate,
-            let title = volume.title,
-            let thumbnail = volume.imageLinks?.thumbnail,
-            let description = volume.description {
+        if let volume = book.volumeInfo {
             
             let model = DetailBookModel()
-            model.author = author[0]
-            model.title = title
-            model.thumbnail = thumbnail
-            model.description = description
-            model.publicationDate = date
+            model.author = volume.authors?[0]
+            model.title = volume.title
+            model.thumbnail = volume.imageLinks?.thumbnail
+            model.description = volume.description
+            model.publicationDate = volume.publishedDate
             
-            self.getCover(thumbnail: model.thumbnail!)
+            if let thumbnail = model.thumbnail {
+                self.getCover(thumbnail: thumbnail)
+            }
             
             return model
         }
