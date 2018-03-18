@@ -17,11 +17,18 @@ class DefaultDetailViewController: BaseViewController<DefaultDetailPresenter>, D
     @IBOutlet weak var bookPublicationDate: UILabel!
     @IBOutlet weak var bookDescription: UILabel!
     
+    @IBOutlet weak var coverContentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewContent: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "detail_title".localized
+        
+        
+        scrollViewContent.backgroundColor = .tableBackgroundoColor
+        coverContentView.backgroundColor = .customGray
         bookTitle.font = .latoRegular(size: 16)
         bookAuthor.font = .latoRegular(size: 14)
         bookPublicationDate.font = .latoRegular(size: 12)

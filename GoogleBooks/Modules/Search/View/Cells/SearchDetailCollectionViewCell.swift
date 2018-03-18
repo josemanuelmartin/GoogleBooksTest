@@ -20,6 +20,12 @@ class SearchDetailCollectionViewCell: BaseCollectionViewCell<SearchBookModel> {
         title.text = viewModel.title
         author.text = viewModel.author
         
+        title.font = .latoBold(size: 14)
+        author.font = .latoRegular(size: 12)
+        
+        title.textColor = .customDarkGray
+        author.textColor = .customGray
+        
         if let thumbnail = viewModel.thumbnail {
             downloadImage(url: thumbnail)
         } else {

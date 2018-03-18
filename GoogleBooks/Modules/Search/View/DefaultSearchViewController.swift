@@ -44,7 +44,10 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "search_title".localized
         view.backgroundColor = .tableBackgroundoColor
+        
         searchBar.delegate = self
         configCollection()
         configSegmentedFilters()
@@ -58,6 +61,9 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     private func configSegmentedFilters() {
         
         segmentedFilter.removeAllSegments()
+        
+        segmenteStateChanged(segmented: segmentedFilter, state: false)
+        segmenteStateChanged(segmented: segmentedDisposition, state: false)
         
         for (index, segment) in presenter.getFilters().enumerated() {
             segmentedFilter.insertSegment(withTitle: segment.filterName, at: index, animated: true)
@@ -117,6 +123,11 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
         
     }
     
+    private func segmenteStateChanged(segmented: UISegmentedControl, state: Bool) {
+        segmented.isUserInteractionEnabled = state
+        segmented.alpha = state ? 1 : 0.5
+    }
+    
     // MARK: - SearchView protocol
     func refreshTable() {
         collectionsBook.reloadData()
@@ -125,8 +136,12 @@ class DefaultSearchViewController: BaseViewController<DefaultSearchPresenter>, S
     func backgroundEmpty(_ state: Bool) {
         if state  {
             collectionsBook.backgroundView = EmptyTableViewBackground()
+            segmenteStateChanged(segmented: segmentedDisposition, state: false)
+            segmenteStateChanged(segmented: segmentedFilter, state: false)
         } else {
             collectionsBook.backgroundView = nil
+            segmenteStateChanged(segmented: segmentedDisposition, state: true)
+            segmenteStateChanged(segmented: segmentedFilter, state: true)
         }
     }
     

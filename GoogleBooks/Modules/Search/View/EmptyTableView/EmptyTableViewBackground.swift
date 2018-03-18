@@ -15,8 +15,8 @@ class EmptyTableViewBackground: BaseView {
     
     override func setupUI() {
         
-        emptyTitle.text = "Empty table"
-        emptySubtitle.text = "Perform a search to see results."
+        emptyTitle.text = "search_empty_table_title".localized
+        emptySubtitle.text = "search_empty_table_subtitle".localized
         
         backgroundColor = .tableBackgroundoColor
         emptyTitle.font = .latoRegular(size: 25)

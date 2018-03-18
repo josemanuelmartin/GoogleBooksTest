@@ -17,6 +17,7 @@
                 <outlet property="bookPublicationDate" destination="Rli-Cn-ZNh" id="rFN-jG-0Xy"/>
                 <outlet property="bookTitle" destination="BUT-C0-NEQ" id="gaa-XR-a08"/>
                 <outlet property="cover" destination="7tm-hy-DTj" id="shx-sa-cNf"/>
+                <outlet property="coverContentView" destination="F8B-aT-gpQ" id="3gx-7v-qF8"/>
                 <outlet property="scrollView" destination="vnt-bu-rh4" id="SlW-SC-yZG"/>
                 <outlet property="scrollViewContent" destination="uru-bc-TN6" id="8XF-c9-POp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
