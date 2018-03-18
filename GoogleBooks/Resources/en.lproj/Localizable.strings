@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  GoogleBooks
+
+  Created by Jose Manuel Martín González.
+  Copyright © 2018 martingonzalezjosemanuel. All rights reserved.
+*/
+
+//Mark: - Search
+"search_title" = "Search";
+
+"search_filter_default" = "Default";
+"search_filter_title" = "Title";
+"search_filter_author" = "Author";
+"search_filter_date" = "Date";
+
+"search_empty_table_title" = "Empty table";
+"search_empty_table_subtitle" = "Permorm a search to see results";
+
+
+//Mark: - Detail
+"detail_title" = "Detail";
