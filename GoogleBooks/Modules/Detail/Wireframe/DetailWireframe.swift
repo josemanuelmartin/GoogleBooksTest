@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DetailWireframe {
-    
+    func showShareAction(messages: [String])
 }

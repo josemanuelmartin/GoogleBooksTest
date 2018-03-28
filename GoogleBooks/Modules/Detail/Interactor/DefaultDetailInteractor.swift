@@ -34,7 +34,6 @@ class DefaultDetailInteractor: DetailInteractor {
             
             switch response {
             case .success(let data):
-                //self.updateCell(data)
                 completion(.success(data))
                 return
             case .failure(let error):

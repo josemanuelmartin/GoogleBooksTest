@@ -15,7 +15,11 @@ class DefaultDetailPresenter: DetailPresenter {
     private let interactor: DetailInteractor
     private let bookIdentifier: String
     
-    var detailBook: DetailBookModel?
+    var detailBook: DetailBookModel? {
+        didSet {
+            self.view?.updateBookDetail(model: detailBook!)
+        }
+    }
     
     init(view: DetailView, wireframe: DetailWireframe, interactor: DetailInteractor, bookIdentifier: String) {
         self.view = view
@@ -28,15 +32,17 @@ class DefaultDetailPresenter: DetailPresenter {
         getBookDetail()
     }
     
+    func shareAction() {
+        guard let infoLink = detailBook?.infoLink else { return }
+        wireframe.showShareAction(messages: [buildMessage(), infoLink])
+    }
+    
     private func getBookDetail() {
         interactor.getBookDetail(id: bookIdentifier) { result in
-            
             switch result {
             case .success(let result):
                 guard let book = self.buildBook(book: result)  else { return }
-                
-                self.view?.updateBookDetail(model: book)
-                
+                self.detailBook = book
             case .failure:
                 //TODO: Show error
                 return
@@ -45,7 +51,6 @@ class DefaultDetailPresenter: DetailPresenter {
     }
     
     private func buildBook(book: Book) -> DetailBookModel? {
-        
         if let volume = book.volumeInfo {
             
             let model = DetailBookModel()
@@ -54,6 +59,7 @@ class DefaultDetailPresenter: DetailPresenter {
             model.thumbnail = volume.imageLinks?.thumbnail
             model.description = volume.description
             model.publicationDate = volume.publishedDate
+            model.infoLink = volume.infoLink
             
             if let thumbnail = model.thumbnail {
                 self.getCover(thumbnail: thumbnail)
@@ -75,5 +81,14 @@ class DefaultDetailPresenter: DetailPresenter {
                 break
             }
         }
+    }
+    
+    private func buildMessage() -> String {
+        if let title = detailBook?.title, let author = detailBook?.author {
+            
+            return String(format: "detail_share_description_book".localized, title, author)
+        }
+        
+        return "detail_share_description".localized
     }
 }

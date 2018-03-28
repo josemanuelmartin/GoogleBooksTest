@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DetailPresenter: Presenter {
-    
+    func shareAction()
 }

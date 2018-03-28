@@ -20,3 +20,5 @@
 
 //Mark: - Detail
 "detail_title" = "Detalle";
+"detail_share_description_book" = "Hola! Te paso el enlace del libro %@ de %@, que me ha gustado bastante.\n";
+"detail_share_description" = "Hola! Te paso el siguiente libro que me ha gustado bastante.\n";

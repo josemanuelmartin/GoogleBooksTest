@@ -107,7 +107,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vnt-bu-rh4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7uR-H4-yyW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vnt-bu-rh4" secondAttribute="bottom" id="Fge-dq-nnB"/>
+                <constraint firstAttribute="bottom" secondItem="vnt-bu-rh4" secondAttribute="bottom" id="Fge-dq-nnB"/>
                 <constraint firstItem="vnt-bu-rh4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hve-vz-3q6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vnt-bu-rh4" secondAttribute="trailing" id="ylX-X3-FQk"/>
             </constraints>

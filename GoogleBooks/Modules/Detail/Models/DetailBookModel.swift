@@ -15,4 +15,5 @@ class DetailBookModel: ViewModel {
     var author: String?
     var description: String?
     var publicationDate: String?
+    var infoLink: String?
 }

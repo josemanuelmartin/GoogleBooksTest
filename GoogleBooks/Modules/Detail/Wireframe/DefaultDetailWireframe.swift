@@ -24,4 +24,11 @@ class DefaultDetailWireframe: DetailWireframe {
         
         return view
     }
+    
+    func showShareAction(messages: [String]) {
+        let activityVC = UIActivityViewController(activityItems: messages,
+                                                  applicationActivities: nil)
+        viewController?.present(activityVC, animated: true, completion: nil)
+    }
 }
+

@@ -20,6 +20,7 @@ struct VolumeInfo: Decodable {
     let imageLinks: ImageLink?
     let language: String?
     let previewLink: String?
+    let infoLink: String?
     
     init(title: String? = nil,
          authors: [String]? = nil,
@@ -30,7 +31,8 @@ struct VolumeInfo: Decodable {
          categories: [String]? = nil,
          imageLinks: ImageLink? = nil,
          language: String? = nil,
-         previewLink: String? = nil) {
+         previewLink: String? = nil,
+         infoLink: String?) {
         
         self.title = title
         self.authors = authors
@@ -42,5 +44,6 @@ struct VolumeInfo: Decodable {
         self.imageLinks = imageLinks
         self.language = language
         self.previewLink = previewLink
+        self.infoLink = infoLink
     }
 }

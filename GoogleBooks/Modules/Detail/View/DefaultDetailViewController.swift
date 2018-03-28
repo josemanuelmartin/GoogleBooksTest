@@ -26,7 +26,6 @@ class DefaultDetailViewController: BaseViewController<DefaultDetailPresenter>, D
         
         title = "detail_title".localized
         
-        
         scrollViewContent.backgroundColor = .tableBackgroundoColor
         coverContentView.backgroundColor = .customGray
         bookTitle.font = .latoRegular(size: 16)
@@ -38,6 +37,8 @@ class DefaultDetailViewController: BaseViewController<DefaultDetailPresenter>, D
         bookAuthor.textColor = .customDarkGray
         bookPublicationDate.textColor = .customGray
         bookDescription.textColor = .customGray
+        
+        configShareButton()
         
         scrollView.delegate = self
     }
@@ -53,4 +54,15 @@ class DefaultDetailViewController: BaseViewController<DefaultDetailPresenter>, D
     func updateCover(_ imageData: Data) {
         cover.image = UIImage(data: imageData)
     }
+    
+    private func configShareButton() {
+        let shareButton = UIBarButtonItem.init(barButtonSystemItem: .action, target: self, action: #selector(shareAction))
+        navigationItem.rightBarButtonItem = shareButton
+    }
+    
+    @objc private func shareAction() {
+        presenter.shareAction()
+    }
+    
+    
 }
